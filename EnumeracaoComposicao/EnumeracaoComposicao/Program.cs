@@ -31,7 +31,7 @@ namespace EnumeracaoComposicao
                 Console.Write("Date (DD/MM/YYYY): ");
                 DateTime date = DateTime.Parse(Console.ReadLine());
                 Console.Write("Value per hour:");
-                double valuePerHours = double.Parse(Console.ReadLine());
+                double valuePerHours = double.Parse(Console.ReadLine() , CultureInfo.InvariantCulture);
                 Console.Write("Duration (hours): ");
                 int hours = int.Parse(Console.ReadLine());
                 HoursContract hoursContract = new HoursContract(date , valuePerHours , hours);
@@ -45,7 +45,7 @@ namespace EnumeracaoComposicao
             int year = int.Parse(mouthAndYear.Substring(3));
             Console.WriteLine("Name: "+worker.Name);
             Console.WriteLine("Department: "+worker.Department.Name);
-            Console.WriteLine("Income for "+ mouthAndYear + ": " + worker.Income(year , mouth));
+            Console.WriteLine("Income for "+ mouthAndYear + ": " + worker.Income(year , mouth).ToString("F2") , CultureInfo.InvariantCulture);
 
             /*
             Order order = new Order
