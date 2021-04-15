@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercadinho", "Mercadinho\Mercadinho.csproj", "{F6D5B941-7A3A-4D6B-BB46-22D0AAF89B98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6D5B941-7A3A-4D6B-BB46-22D0AAF89B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D5B941-7A3A-4D6B-BB46-22D0AAF89B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D5B941-7A3A-4D6B-BB46-22D0AAF89B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D5B941-7A3A-4D6B-BB46-22D0AAF89B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E44758F1-4F1D-4C97-8821-A7B291D5A483}
+	EndGlobalSection
+EndGlobal
