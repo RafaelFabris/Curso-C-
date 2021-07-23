@@ -8,26 +8,20 @@ namespace Directory_DirectoryInfo
     {
         static void Main(string[] args)
         {
-           string path = @"c:\temp\myfolder";
+            string path = @"c:\temp\myfolder\file1.txt";
 
             try
             {
-                IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*" , SearchOption.AllDirectories);
-                Console.WriteLine("Folder");
-                foreach (string s in folders)
-                {
-                    Console.WriteLine(s);
-                }
-                IEnumerable<string> files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
-                Console.WriteLine("Files");
-                foreach (string s in files)
-                {
-                    Console.WriteLine(s);
-                }
-
-                Directory.CreateDirectory(path + "\\newFolder");
+                Console.WriteLine("Directory Separator Char: " + Path.DirectorySeparatorChar);
+                Console.WriteLine("PathSeparator: " + Path.PathSeparator);
+                Console.WriteLine("Get Directory Name: " + Path.GetDirectoryName(path));
+                Console.WriteLine("Get File Name: " + Path.GetFileName(path));
+                Console.WriteLine("Get File Name Without Extension: " + Path.GetFileNameWithoutExtension(path));
+                Console.WriteLine("Get Extension: " + Path.GetExtension(path));
+                Console.WriteLine("Get Full Path: " + Path.GetFullPath(path));
+                Console.WriteLine("GetTempPath: " + Path.GetTempPath());
             }
-            catch(IOException e)
+            catch (IOException e)
             {
                 Console.WriteLine("An Error Occurred");
                 Console.WriteLine(e.Message);
