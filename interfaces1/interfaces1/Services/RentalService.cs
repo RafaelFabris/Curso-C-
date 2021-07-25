@@ -9,12 +9,13 @@ namespace interfaces1.Services
         public double PricePerHour { get; private set; }
         public double PricePerDay { get; private set; }
 
-        private BrasilTaxService _brasilTaxService = new BrasilTaxService();
+        private ITaxkService _taxkService;
 
-        public RentalServic(double pricePerHour, double pricePerDay)
+        public RentalServic(double pricePerHour, double pricePerDay , ITaxkService taxkService)
         {
             PricePerHour = pricePerHour;
             PricePerDay = pricePerDay;
+            _taxkService = taxkService;
         }
 
         public void ProcessInvoice(CarRental carRental)
@@ -31,7 +32,7 @@ namespace interfaces1.Services
                 basicPayment = PricePerDay * Math.Ceiling(duration.TotalDays);
             }
 
-            double tax = _brasilTaxService.Tax(basicPayment);
+            double tax = _taxkService.Tax(basicPayment);
 
             carRental.invoice = new Invoice(basicPayment , tax);
         }

@@ -17,13 +17,13 @@ namespace interfaces1
             Console.WriteLine("Return (dd/MM/yyyy hh:mm): ");
             DateTime finish = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
             Console.WriteLine("Enter price per hour: ");
-            double priceHours = double.Parse(Console.ReadLine());
+            double priceHours = double.Parse(Console.ReadLine() , CultureInfo.InvariantCulture);
             Console.WriteLine("Enter price per day: ");
-            double priceDays = double.Parse(Console.ReadLine());
+            double priceDays = double.Parse(Console.ReadLine() , CultureInfo.InvariantCulture);
 
             
             CarRental carRental = new CarRental(start , finish , new Vehicle(model));
-            RentalServic rentalServic = new RentalServic(priceHours, priceDays);
+            RentalServic rentalServic = new RentalServic(priceHours, priceDays,  new BrasilTaxService());
             rentalServic.ProcessInvoice(carRental);
             Console.WriteLine(carRental.invoice.ToString());
 
