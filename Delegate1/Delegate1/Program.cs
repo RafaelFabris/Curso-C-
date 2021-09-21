@@ -1,5 +1,7 @@
 ﻿using System;
 using Delegate1.Services;
+using Delegate1.Entities;
+using System.Collections.Generic;
 
 namespace Delegate1
 {
@@ -9,15 +11,27 @@ namespace Delegate1
     {
         static void Main(string[] args)
         {
-            double a = 10;
-            double b = 12;
+            List<Product> list = new List<Product>();
 
-            BynaryNumericOperation op = CalculationService.ShowSum;
-            op += CalculationService.ShowMax;
+            list.Add(new Product("Tv", 900.00));
+            list.Add(new Product("Mouse", 50.00));
+            list.Add(new Product("Tablet", 350.50));
+            list.Add(new Product("HD Case", 80.90));
 
-            op.Invoke(a, b);
+            //list.RemoveAll(p => p.Price >= 100.00);
+            list.RemoveAll(ProductTest);
 
-            
+            foreach(Product p in list)
+            {
+                Console.WriteLine(p);
+            }
+
+
+
+        }
+        public static bool ProductTest(Product p)
+        {
+            return p.Price >= 100.0;
         }
     }
 }
