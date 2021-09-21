@@ -3,7 +3,7 @@ using Delegate1.Services;
 
 namespace Delegate1
 {
-    delegate double BynaryNumericOperation(double n1, double n2);
+    delegate void BynaryNumericOperation(double n1, double n2);
 
     class Program
     {
@@ -12,11 +12,12 @@ namespace Delegate1
             double a = 10;
             double b = 12;
 
-            BynaryNumericOperation op = CalculationService.Sum;
+            BynaryNumericOperation op = CalculationService.ShowSum;
+            op += CalculationService.ShowMax;
 
-            double result = op(a, b);
+            op.Invoke(a, b);
 
-            Console.WriteLine(result);
+            
         }
     }
 }
