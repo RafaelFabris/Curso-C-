@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 namespace Delegate1
 {
-    delegate void BynaryNumericOperation(double n1, double n2);
+    
+
 
     class Program
     {
@@ -18,20 +19,21 @@ namespace Delegate1
             list.Add(new Product("Tablet", 350.50));
             list.Add(new Product("HD Case", 80.90));
 
-            //list.RemoveAll(p => p.Price >= 100.00);
-            list.RemoveAll(ProductTest);
+            Action<Product> action = p => { p.Price += p.Price * 0.1; };
 
+            //list.ForEach(UpdatePrice);
+            //list.ForEach(action);
+            list.ForEach(p => { p.Price += p.Price * 0.1; });
             foreach(Product p in list)
             {
                 Console.WriteLine(p);
             }
 
-
-
         }
-        public static bool ProductTest(Product p)
+        
+        static void UpdatePrice(Product p)
         {
-            return p.Price >= 100.0;
+            p.Price += p.Price * 0.1;
         }
     }
 }
