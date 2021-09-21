@@ -2,11 +2,10 @@
 using Delegate1.Services;
 using Delegate1.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Delegate1
 {
-    
-
 
     class Program
     {
@@ -19,21 +18,23 @@ namespace Delegate1
             list.Add(new Product("Tablet", 350.50));
             list.Add(new Product("HD Case", 80.90));
 
-            Action<Product> action = p => { p.Price += p.Price * 0.1; };
+            //Func<Product, string> func = NameUpper;
+            Func<Product, string> func = p => p.Name.ToUpper();
 
-            //list.ForEach(UpdatePrice);
-            //list.ForEach(action);
-            list.ForEach(p => { p.Price += p.Price * 0.1; });
-            foreach(Product p in list)
+            //List<string> result = list.Select(NameUpper).ToList();
+            //List<string> result = list.Select(func).ToList();
+            List<string> result = list.Select(p => p.Name.ToUpper()).ToList();
+
+            foreach (string s in result)
             {
-                Console.WriteLine(p);
+                Console.WriteLine(s);
             }
 
         }
         
-        static void UpdatePrice(Product p)
+        static string NameUpper(Product p)
         {
-            p.Price += p.Price * 0.1;
+            return p.Name.ToUpper();
         }
     }
 }
